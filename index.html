@@ -3,19 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> Yiannis Berdousis — Academic Portfolio</title>
-  <meta name="description" content="Academic portfolio of a Computer Science educator and researcher: research, teaching, publications, CV, contact." />
+  <title>Ιωάννης Μπερδούσης — Academic Portfolio</title>
+  <meta name="description" content="Academic portfolio of Yiannis Berdousis: research, teaching, publications, CV, contact." />
   <style>
-    /* ——— Notion‑inspired minimal look ——— */
-    :root{
-      --bg:#fff; --fg:#111; --muted:#5c5c5c; --line:#eaeaea; --card:#fafafa; --accent:#0b5fff;
-    }
-    @media (prefers-color-scheme: dark){
-      :root{ --bg:#0e0f12; --fg:#f3f3f3; --muted:#b8b8b8; --line:#24262b; --card:#15171b; --accent:#86a8ff; }
-    }
-    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
-    .wrap{ max-width: 920px; margin: 0 auto; padding: 40px 20px 80px; }
-    header{ display:flex; gap:28px; align-items:center; }
+    :root{ --bg:#fff; --fg:#111; --muted:#5c5c5c; --line:#eaeaea; --card:#fafafa; --accent:#0b5fff; }
+    @media (prefers-color-scheme: dark){ :root{ --bg:#0e0f12; --fg:#f3f3f3; --muted:#b8b8b8; --line:#24262b; --card:#15171b; --accent:#86a8ff; } }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans"; }
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 40px 20px 80px; }
+    header{ display:flex; gap:28px; align-items:center; flex-wrap:wrap; }
     header img{ width:120px; height:120px; border-radius:14px; object-fit:cover; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
     h1{ font-size: clamp(28px, 4vw, 40px); line-height:1.15; margin:0; }
     .muted{ color:var(--muted); }
@@ -27,7 +22,7 @@
     h2{ font-size: clamp(22px, 3vw, 28px); margin: 0 0 14px; }
     h3{ margin:18px 0 8px; font-size: 18px; }
     .grid{ display:grid; grid-template-columns: 1fr; gap:18px; }
-    @media (min-width: 800px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px){ .grid{ grid-template-columns: 1fr 1fr; } }
     ul{ margin:8px 0 0 20px; }
     li{ margin: 6px 0; }
     .card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
@@ -38,6 +33,8 @@
     footer{ margin-top:32px; font-size:.95rem; color:var(--muted); }
     .kudos{ margin-top:6px; }
     code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--card); padding:2px 6px; border-radius:6px; border:1px solid var(--line); }
+    .two-col{ display:grid; grid-template-columns: 1fr; gap:18px; }
+    @media (min-width: 900px){ .two-col{ grid-template-columns: 2fr 1fr; } }
   </style>
 </head>
 <body>
@@ -45,8 +42,8 @@
     <header>
       <img src="https://images.unsplash.com/photo-1603415526960-f7e0328d13bf?q=80&w=640&auto=format&fit=crop" alt="Portrait placeholder" />
       <div>
-        <h1> Yiannis Berdousis <span class="muted">— Εκπαιδευτικός Πληροφορικής & Ερευνητής</span></h1>
-        <p class="muted small">Computational Thinking • Programming Education • Scratch ↔ Python • Gender & Equity • STEAM</p>
+        <h1>Ιωάννης (Γιάννης) Μπερδούσης <span class="muted">— Εκπαιδευτικός Πληροφορικής & Ερευνητής</span></h1>
+        <p class="muted small">Computational Thinking • Didactics of Informatics • Scratch ↔ Python • Gender & Equity • STEAM</p>
         <div>
           <a class="btn" href="#cv">⬇︎ Κατέβασμα CV</a>
           <a class="btn" href="#contact">✉️ Επικοινωνία</a>
@@ -59,14 +56,15 @@
       <a href="#research">Research</a>
       <a href="#teaching">Teaching</a>
       <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
       <a href="#cv">CV</a>
       <a href="#contact">Contact</a>
     </nav>
 
     <section id="about">
       <h2>About</h2>
-      <p>Είμαι εκπαιδευτικός Πληροφορικής στην πρωτοβάθμια εκπαίδευση και ερευνητής. Το έργο μου εστιάζει στην υπολογιστική σκέψη, στον εκπαιδευτικό προγραμματισμό και στη συμπερίληψη. Αυτή την περίοδο αναπτύσσω έρευνα για τη μετάβαση από <strong>Scratch</strong> σε <strong>Python</strong> στο Δημοτικό με έμφαση στη διάσταση του φύλου.</p>
-      <div class="kudos small muted">Φιλοσοφία: <em>"Coding literacy as a fundamental skill for the 21st century"</em></div>
+      <p>Είμαι εκπαιδευτικός Πληροφορικής (ΠΕ86) στην πρωτοβάθμια εκπαίδευση και ερευνητής στη Διδακτική της Πληροφορικής. Η δουλειά μου εστιάζει στην υπολογιστική σκέψη, στον εκπαιδευτικό προγραμματισμό, στη συμπερίληψη και στη διερεύνηση της διάστασης του φύλου στις σπουδές Πληροφορικής. Έχω εμπειρία σε Α/θμια & Β/θμια εκπαίδευση, μεταδευτεροβάθμια εκπαίδευση (ΙΕΚ/ΣΑΕΚ) και τριτοβάθμια (Α.Σ.ΠΑΙ.Τ.Ε., Πανεπιστήμιο Πελοποννήσου).</p>
+      <div class="kudos small muted">Τωρινός ρόλος: Διορισμένος μόνιμος εκπαιδευτικός ΠΕ86 (Δ/νση Α/θμιας Εκπαίδευσης Αρκαδίας, 08/2021–σήμερα).</div>
     </section>
 
     <section id="research">
@@ -75,68 +73,131 @@
         <div class="card">
           <h3>Research Interests</h3>
           <ul>
-            <li>Computational Thinking in Primary Education</li>
-            <li>Scratch vs Python • block‑based ↔ text‑based programming</li>
-            <li>Gender, participation & belonging in computing education</li>
-            <li>Digital pedagogy, STEAM & educational robotics</li>
+            <li>Διδακτική της Πληροφορικής & Υπολογιστική Σκέψη στην Πρωτοβάθμια</li>
+            <li>Scratch ↔ Python: block‑based vs text‑based programming</li>
+            <li>Ζητήματα φύλου στην εκπαίδευση Πληροφορικής, συμμετοχή & ένταξη</li>
+            <li>STEAM, ρομποτική και αξιολόγηση δεξιοτήτων 21ου αιώνα</li>
           </ul>
           <div>
             <span class="pill">CT</span>
             <span class="pill">Scratch</span>
             <span class="pill">Python</span>
-            <span class="pill">Equity</span>
+            <span class="pill">Gender</span>
             <span class="pill">STEAM</span>
           </div>
         </div>
         <div class="card">
           <h3>Current Project</h3>
-          <p><strong>Από το Scratch στην Python:</strong> Μικτή μελέτη για τη μετάβαση από block‑based σε text‑based προγραμματισμό στο Δημοτικό, με έμφαση στις γνωστικές δυσκολίες, στις στρατηγικές διδασκαλίας και στις διαφορές φύλου.</p>
+          <p><strong>Από το Scratch στην Python:</strong> Μικτή μελέτη για τη μετάβαση από block‑based σε text‑based προγραμματισμό στο Δημοτικό, με έμφαση στις γνωστικές δυσκολίες, στις στρατηγικές διδασκαλίας και στις διαφορές φύλου. Σύνδεση με το νέο ΠΣ Πληροφορικής (ΦΕΚ 3022/08‑05‑2023).</p>
           <ul class="small">
-            <li>Design: pre/post tests, analysis of student projects, interviews.</li>
-            <li>Artifacts: lesson plans, rubrics, e‑portfolios (privacy‑aware).</li>
+            <li>Design: pre/post tests, ανάλυση έργων μαθητών, ημιδομημένες συνεντεύξεις.</li>
+            <li>Artifacts: σχέδια μαθήματος, ρουμπρίκες, e‑portfolios.</li>
           </ul>
         </div>
+      </div>
+      <div class="card" style="margin-top:18px;">
+        <h3>Selected Grants & Projects</h3>
+        <ul class="small">
+          <li><strong>ASSESSMAKE21</strong> (2020–2022): Καινοτόμες ψηφιακές λύσεις για αξιολόγηση δεξιοτήτων 21ου αιώνα σε makerspaces — συμμετοχή σε O1–O4 (σχεδιασμός εργαλείων, ανάπτυξη, επιμόρφωση, πιλοτική αξιολόγηση).</li>
+          <li>Σύστημα διαχείρισης προορισμού (DMS) – ΕΛΚΕ Παν. Πελοποννήσου (2019–2020): αρχιτεκτονική & τεχνικές προδιαγραφές.</li>
+        </ul>
       </div>
     </section>
 
     <section id="teaching">
       <h2>Teaching</h2>
-      <p>Σχεδιάζω μαθησιακά σενάρια με βάση το νέο ΠΣ Πληροφορικής (ΦΕΚ 3022/08‑05‑2023), εστιάζοντας στην αλγοριθμική σκέψη, στη δημιουργία κώδικα και στη διαθεματικότητα.</p>
+      <p>Διδασκαλία και επιμόρφωση σε πολλαπλά επίπεδα: Α/θμια & Β/θμια, ΙΕΚ/ΣΑΕΚ, καθώς και τριτοβάθμια (Α.Σ.ΠΑΙ.Τ.Ε., Πανεπιστήμιο Πελοποννήσου). Ενδεικτικά:</p>
       <div class="grid">
         <div class="card">
-          <h3>Sample Lesson • Scratch</h3>
-          <p><strong>Ζωγράφισε το πολύγωνο:</strong> επανάληψη, γωνίες, παραμετροποίηση. <a href="#" aria-label="Scratch project link">Προεπισκόπηση</a></p>
+          <h3>Πρωτοβάθμια/Δευτεροβάθμια</h3>
+          <ul class="small">
+            <li>Διορισμένος μόνιμος εκπαιδευτικός ΠΕ86 (08/2021–σήμερα).</li>
+            <li>Αναπληρωτής ΠΕ86 (2010–2021).</li>
+          </ul>
         </div>
         <div class="card">
-          <h3>Sample Lesson • Python</h3>
-          <p><strong>Τετραγωνισμός με turtle:</strong> ακολουθία → βρόχος <code>for</code> → συνθήκη. <a href="#" aria-label="Python notebook link">Notebook</a></p>
+          <h3>Τριτοβάθμια</h3>
+          <ul class="small">
+            <li>Α.Σ.ΠΑΙ.Τ.Ε. (Παράρτημα Άργους): Εκπαιδευτική Τεχνολογία – Πολυμέσα (Θεωρία/Εργαστήριο), Πρακτικές Ασκήσεις Διδασκαλίας ΙΙ.</li>
+            <li>Παν. Πελοποννήσου: Προγραμματισμός & Βάσεις Δεδομένων, Ψηφιακή Τεχνολογία και Ηθική.</li>
+            <li>Μητροπολιτικό Κολλέγιο Αθηνών: Σχεδιασμός & Ανάπτυξη Ψηφιακών Εφαρμογών.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Μεταδευτεροβάθμια / Επιμορφώσεις</h3>
+          <ul class="small">
+            <li>ΣΑΕΚ Τρίπολης: Τεχνικός Εφαρμογών Πληροφορικής (400 ώρες, 2023–2025).</li>
+            <li>ΙΕΚ Άργους: Συστήματα Επικοινωνιών (2021).</li>
+            <li>eTwinning: Arduino Basic (200 ώρες, 2023). Δράσεις σε ΤΝ στην εκπαίδευση (2025).</li>
+            <li>Δ.ΥΠ.Α.: Προγράμματα αναβάθμισης δεξιοτήτων (2023–2024).</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section id="publications">
-      <h2>Publications (επιλογή)</h2>
+      <h2>Δημοσιεύσεις (επιλογή)</h2>
+      <h3>Διεθνή Επιστημονικά Περιοδικά με Κριτές</h3>
       <ul>
-        <li>Resnick, M. et al. (2009). Scratch: Programming for all. <em>Communications of the ACM</em>.</li>
-        <li>Weintrop, D., & Wilensky, U. (2017). Comparing block‑based and text‑based programming. <em>ACM TOCE</em>.</li>
-        <li>Kelleher, C., & Pausch, R. (2007). Lowering the barriers to programming. <em>ACM Computing Surveys</em>.</li>
-        <li>Master, A., Cheryan, S., & Meltzoff, A. N. (2016). Stereotypes & girls’ belonging in CS. <em>JEP</em>.</li>
+        <li>Berdousis, I. (2024). Exploring gamified learning: student engagement and academic achievement perspectives. <em>World Journal on Educational Technology: Current Issues</em>, 16(3), 172–180.</li>
+        <li>Berdousis, I. (2024). Exploring factors influencing teachers’ self-efficacy in distance learning. <em>International Journal of Innovative Research in Education</em>, 11(1), 12–22.</li>
+        <li>Berdousis, I. (2023). ICT and Informatics in Primary Education: A Comparative Study. <em>educ@tional circle</em>, 11(2), 190–201.</li>
+        <li>Berdousis, I., & Kostopoulou, I. (2023). Teacher training in distance education: views and experiences. <em>International Journal of Educational Innovation</em>, 5(1), 64–73.</li>
+        <li>Kordaki, M., & Berdousis, I. (2020). Identifying Barriers for Women Participation in Computer Science. <em>Pro Edu. International Journal of Educational Sciences</em>, 2(2), 5–20.</li>
+        <li>Berdousis, I., & Kordaki, M. (2019). Gender and student course preferences and course performance in CS departments. <em>Education and Information Technologies</em>, 24(2), 1269–1291.</li>
+        <li>Berdousis, I., & Kordaki, M. (2016). Computing and STEM in Greek Tertiary education: Gender representation (2003–2013). <em>Gender and Education</em>.</li>
       </ul>
+      <h3>Ελληνικά Επιστημονικά Περιοδικά με Κριτές</h3>
+      <ul>
+        <li>Μπερδούσης, Ι. (2024). Αναδυόμενες τάσεις & προκλήσεις στη χρήση ψηφιακών παιχνιδιών στη μάθηση: κριτική επισκόπηση. <em>Νέος Παιδαγωγός Online</em>, 43, 33–44.</li>
+        <li>Μπερδούσης, Ι. (2023). Εκπαιδευτικός σχεδιασμός στην εξ αποστάσεως εκπαίδευση. <em>Νέος Παιδαγωγός Online</em>, 36, 241–253.</li>
+      </ul>
+      <h3>Κεφάλαια Βιβλίων</h3>
+      <ul>
+        <li>Kordaki, M., & Berdousis, I. (2020). Gender Differences in Computer Science Departments. In A. Tatnall (Ed.), <em>Encyclopedia of Education and Information Technologies</em>. Springer.</li>
+      </ul>
+      <h3>Συνέδρια (ενδεικτικά)</h3>
+      <ul>
+        <li>Μπερδούσης, Ι., & Κορδάκη, Μ. (2014). Φοιτητές Τμημάτων Πληροφορικής: η διάσταση του φύλου. 7ο Παν. Συνέδριο «Διδακτική της Πληροφορικής», Κρήτη.</li>
+        <li>Μπερδούσης, Ι. (2012). Μελλοντικές Νηπιαγωγοί και Διαδίκτυο. 8ο Παν. Συνέδριο «ΤΠΕ στην Εκπαίδευση», Βόλος.</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3>Σπουδές</h3>
+          <ul>
+            <li><strong>MSc in Education (Εκπαίδευση)</strong>, 2014.</li>
+            <li><strong>Παιδαγωγική και Διδακτική Επάρκεια</strong>, 2014.</li>
+            <li><strong>MSc in Computer Science</strong>, 2013.</li>
+            <li><strong>BSc in Computer Science</strong>, 2011.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Πιστοποιήσεις/Σεμινάρια (ενδεικτικά)</h3>
+          <ul class="small">
+            <li>eTwinning: Arduino Basic (200 ώρες, 2023).</li>
+            <li>Προγράμματα Δ.ΥΠ.Α. (Upskilling/Reskilling, 2023–2024).</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="cv">
       <h2>CV</h2>
-      <p class="muted small">Προσάρμοσε τον παρακάτω σύνδεσμο ώστε να οδηγεί στο αρχείο PDF του βιογραφικού σου.</p>
-      <p><a class="btn" href="cv_yourname.pdf" download>⬇︎ Download CV (PDF)</a></p>
+      <p class="muted small">Μπορείτε να κατεβάσετε το πλήρες βιογραφικό μου σε PDF.</p>
+      <p><a class="btn" href="CV_Yiannis_Berdousis.pdf" download>⬇︎ Download CV (PDF)</a></p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:you@example.com">you@example.com</a> · Google Scholar · ORCID · LinkedIn</p>
+      <p>Email: <a href="mailto:">[email]</a> · Google Scholar · ORCID · LinkedIn</p>
     </section>
 
     <footer>
-      <div>© <span id="y"></span> [Το Όνομά σου]. Last updated <span id="d"></span>.</div>
+      <div>© <span id="y"></span> Ιωάννης Μπερδούσης. Last updated <span id="d"></span>.</div>
     </footer>
   </div>
   <script>
