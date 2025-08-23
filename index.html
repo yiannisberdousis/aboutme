@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Yiannis Berdousis — Academic Portfolio</title>
+  <meta name="description" content="Academic portfolio of a Computer Science educator and researcher: research, teaching, publications, CV, contact." />
+  <style>
+    /* ——— Notion‑inspired minimal look ——— */
+    :root{
+      --bg:#fff; --fg:#111; --muted:#5c5c5c; --line:#eaeaea; --card:#fafafa; --accent:#0b5fff;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0e0f12; --fg:#f3f3f3; --muted:#b8b8b8; --line:#24262b; --card:#15171b; --accent:#86a8ff; }
+    }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    .wrap{ max-width: 920px; margin: 0 auto; padding: 40px 20px 80px; }
+    header{ display:flex; gap:28px; align-items:center; }
+    header img{ width:120px; height:120px; border-radius:14px; object-fit:cover; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    h1{ font-size: clamp(28px, 4vw, 40px); line-height:1.15; margin:0; }
+    .muted{ color:var(--muted); }
+    nav{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:28px 0; padding:12px 0; position:sticky; top:0; backdrop-filter:saturate(180%) blur(6px); background: color-mix(in oklab, var(--bg), transparent 10%); z-index: 10; }
+    nav a{ margin-right:18px; text-decoration:none; color:var(--fg); padding:6px 10px; border-radius:8px; }
+    nav a:hover{ background:var(--card); }
+    section{ padding: 22px 0 8px; border-bottom:1px solid var(--line); }
+    section:last-of-type{ border-bottom: none; }
+    h2{ font-size: clamp(22px, 3vw, 28px); margin: 0 0 14px; }
+    h3{ margin:18px 0 8px; font-size: 18px; }
+    .grid{ display:grid; grid-template-columns: 1fr; gap:18px; }
+    @media (min-width: 800px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    ul{ margin:8px 0 0 20px; }
+    li{ margin: 6px 0; }
+    .card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
+    .pill{ display:inline-block; padding:6px 10px; border-radius:999px; background:var(--card); border:1px solid var(--line); margin: 4px 8px 0 0; font-size:.9rem; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:1px solid var(--line); text-decoration:none; color:var(--fg); background:var(--card); }
+    .btn:hover{ border-color:var(--accent); }
+    .small{ font-size:.95rem; }
+    footer{ margin-top:32px; font-size:.95rem; color:var(--muted); }
+    .kudos{ margin-top:6px; }
+    code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--card); padding:2px 6px; border-radius:6px; border:1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="https://images.unsplash.com/photo-1603415526960-f7e0328d13bf?q=80&w=640&auto=format&fit=crop" alt="Portrait placeholder" />
+      <div>
+        <h1> Yiannis Berdousis <span class="muted">— Εκπαιδευτικός Πληροφορικής & Ερευνητής</span></h1>
+        <p class="muted small">Computational Thinking • Programming Education • Scratch ↔ Python • Gender & Equity • STEAM</p>
+        <div>
+          <a class="btn" href="#cv">⬇︎ Κατέβασμα CV</a>
+          <a class="btn" href="#contact">✉️ Επικοινωνία</a>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#publications">Publications</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Είμαι εκπαιδευτικός Πληροφορικής στην πρωτοβάθμια εκπαίδευση και ερευνητής. Το έργο μου εστιάζει στην υπολογιστική σκέψη, στον εκπαιδευτικό προγραμματισμό και στη συμπερίληψη. Αυτή την περίοδο αναπτύσσω έρευνα για τη μετάβαση από <strong>Scratch</strong> σε <strong>Python</strong> στο Δημοτικό με έμφαση στη διάσταση του φύλου.</p>
+      <div class="kudos small muted">Φιλοσοφία: <em>"Coding literacy as a fundamental skill for the 21st century"</em></div>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Research Interests</h3>
+          <ul>
+            <li>Computational Thinking in Primary Education</li>
+            <li>Scratch vs Python • block‑based ↔ text‑based programming</li>
+            <li>Gender, participation & belonging in computing education</li>
+            <li>Digital pedagogy, STEAM & educational robotics</li>
+          </ul>
+          <div>
+            <span class="pill">CT</span>
+            <span class="pill">Scratch</span>
+            <span class="pill">Python</span>
+            <span class="pill">Equity</span>
+            <span class="pill">STEAM</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Current Project</h3>
+          <p><strong>Από το Scratch στην Python:</strong> Μικτή μελέτη για τη μετάβαση από block‑based σε text‑based προγραμματισμό στο Δημοτικό, με έμφαση στις γνωστικές δυσκολίες, στις στρατηγικές διδασκαλίας και στις διαφορές φύλου.</p>
+          <ul class="small">
+            <li>Design: pre/post tests, analysis of student projects, interviews.</li>
+            <li>Artifacts: lesson plans, rubrics, e‑portfolios (privacy‑aware).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p>Σχεδιάζω μαθησιακά σενάρια με βάση το νέο ΠΣ Πληροφορικής (ΦΕΚ 3022/08‑05‑2023), εστιάζοντας στην αλγοριθμική σκέψη, στη δημιουργία κώδικα και στη διαθεματικότητα.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Sample Lesson • Scratch</h3>
+          <p><strong>Ζωγράφισε το πολύγωνο:</strong> επανάληψη, γωνίες, παραμετροποίηση. <a href="#" aria-label="Scratch project link">Προεπισκόπηση</a></p>
+        </div>
+        <div class="card">
+          <h3>Sample Lesson • Python</h3>
+          <p><strong>Τετραγωνισμός με turtle:</strong> ακολουθία → βρόχος <code>for</code> → συνθήκη. <a href="#" aria-label="Python notebook link">Notebook</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications (επιλογή)</h2>
+      <ul>
+        <li>Resnick, M. et al. (2009). Scratch: Programming for all. <em>Communications of the ACM</em>.</li>
+        <li>Weintrop, D., & Wilensky, U. (2017). Comparing block‑based and text‑based programming. <em>ACM TOCE</em>.</li>
+        <li>Kelleher, C., & Pausch, R. (2007). Lowering the barriers to programming. <em>ACM Computing Surveys</em>.</li>
+        <li>Master, A., Cheryan, S., & Meltzoff, A. N. (2016). Stereotypes & girls’ belonging in CS. <em>JEP</em>.</li>
+      </ul>
+    </section>
+
+    <section id="cv">
+      <h2>CV</h2>
+      <p class="muted small">Προσάρμοσε τον παρακάτω σύνδεσμο ώστε να οδηγεί στο αρχείο PDF του βιογραφικού σου.</p>
+      <p><a class="btn" href="cv_yourname.pdf" download>⬇︎ Download CV (PDF)</a></p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a> · Google Scholar · ORCID · LinkedIn</p>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> [Το Όνομά σου]. Last updated <span id="d"></span>.</div>
+    </footer>
+  </div>
+  <script>
+    const now = new Date();
+    document.getElementById('y').textContent = now.getFullYear();
+    document.getElementById('d').textContent = now.toLocaleDateString('el-GR');
+  </script>
+</body>
+</html>
