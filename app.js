@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sections = {
       academic: document.getElementById('perspective-academic'),
-      tech: document.getElementById('perspective-tech'),
+      education: document.getElementById('perspective-education'),
       executive: document.getElementById('perspective-executive')
     };
 
@@ -375,21 +375,41 @@ document.addEventListener('DOMContentLoaded', () => {
     switch (cmd) {
       case 'help':
         appendTerminalLine(`Διαθέσιμες εντολές:
-  • bio        - Σύντομο βιογραφικό προφίλ
+  • bio        - Σύντομο ακαδημαϊκό & εκπαιδευτικό προφίλ
   • postdoc    - Πληροφορίες μεταδιδακτορικής έρευνας
+  • training   - Επιμορφωτικό έργο ενηλίκων (eTwinning, ΔΥΠΑ κ.α.)
+  • teaching   - Διδακτική εμπειρία (Πανεπιστήμια, ΣΑΕΚ, Σχολεία)
   • stats      - Βασικά αριθμητικά μεγέθη & επιτεύγματα
-  • pubs       - Σύνολο και κατηγορίες δημοσιεύσεων
-  • skills     - Ερευνητικά ενδιαφέροντα & τεχνολογίες
-  • contact    - Στοιχεία επικοινωνίας (Email, Τηλ)
+  • pubs       - Σύνολο και κατηγορίες επιστημονικών δημοσιεύσεων
+  • skills     - Τομείς εξειδίκευσης & ενδιαφέροντα
+  • contact    - Στοιχεία επικοινωνίας
   • clear      - Καθαρισμός τερματικού
   • exit       - Κλείσιμο τερματικού`);
         break;
 
       case 'bio':
         appendTerminalLine(`Δρ. Ιωάννης Δ. Μπερδούσης
-Μεταδιδακτορικός Ερευνητής (Παν. Πελοποννήσου) & Διδάκτωρ (Παν. Αιγαίου - Άριστα).
-Εξειδίκευση στην Τεχνητή Νοημοσύνη, Προγραμματισμό, Gamification & Συμπερίληψη στην Εκπαίδευση.
-Πρώην Μηχανικός Λογισμικού (Nokia Networks).`);
+Μεταδιδακτορικός Ερευνητής (Παν. Πελοποννήσου) & Διδάκτωρ Διδακτικής Πληροφορικής (Παν. Αιγαίου - Άριστα).
+Μόνιμος Εκπαιδευτικός ΠΕ86 & Επιμορφωτής Ενηλίκων (1.500+ ώρες).
+Εξειδίκευση στην Τεχνητή Νοημοσύνη στην Εκπαίδευση, Gamified Learning, Εκπαιδευτική Ρομποτική & Συμπερίληψη.`);
+        break;
+
+      case 'training':
+        appendTerminalLine(`Επιμορφωτικό Έργο & Εκπαίδευση Ενηλίκων (1.500+ ώρες):
+  - eTwinning AI: Παιδαγωγική αξιοποίηση Τεχνητής Νοημοσύνης (200 ώρες)
+  - eTwinning Robotics: Arduino Basic & Ρομποτική (200 ώρες)
+  - eTwinning: Διαδραστικά Συστήματα στη Διδασκαλία (200 ώρες)
+  - Δ.ΥΠ.Α / ΚΕΚ ΣΑΡΩΝΙΣ: Ψηφιακές & Πράσινες Δεξιότητες (510 ώρες)
+  - ΣΕΠΕ / ΚΕΚ ΑΠΟΨΗ: Διαχειριστής Βάσεων Δεδομένων (250 ώρες)
+  - Ε.Ε.Π.Ε.Κ.: Σύγχρονες Μέθοδοι Τηλεκπαίδευσης & Πληροφοριακά Συστήματα (350+ ώρες)
+  - Α.Π.Θ.: Ταχύρρυθμη Επιμόρφωση στην Εξ Αποστάσεως Εκπαίδευση (20 ώρες)`);
+        break;
+
+      case 'teaching':
+        appendTerminalLine(`Διδακτική Εμπειρία:
+  - Τριτοβάθμια: Μητροπολιτικό Κολλέγιο (MA ICT), Παν. Πελοποννήσου (Αυτοδύναμη διδασκαλία Προγραμματισμού, Βάσεων Δεδομένων, Ηθικής & Διάχυτων Συστημάτων), ΑΣΠΑΙΤΕ, ΤΕΙ
+  - Μετα-δευτεροβάθμια: ΣΑΕΚ / Δ.ΙΕΚ Τρίπολης, Άργους, Ναυπλίου (400+ ώρες σε C++, Web Dev, DBs, OS)
+  - Σχολική: Μόνιμος Εκπαιδευτικός ΠΕ86 (2021-Σήμερα) & Αναπληρωτής (2010-2021)`);
         break;
 
       case 'postdoc':
@@ -416,12 +436,13 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
 
       case 'skills':
-        appendTerminalLine(`Τομείς Εξειδίκευσης:
+        appendTerminalLine(`Τομείς Εξειδίκευσης & Ερευνητικά Ενδιαφέροντα:
   - Τεχνητή Νοημοσύνη στην Εκπαίδευση (LLMs, GenAI, Inclusivity)
   - Παιχνιδοποίηση / Gamified Learning (SDT, Flow Theory, TAM)
-  - Gender Issues in Computer Science
-  - Εκπαιδευτική Ρομποτική & Physical Computing (Arduino, Scratch)
-  - Software Engineering & Systems (Nokia R&D, C++, Python, Databases)`);
+  - Διδακτική της Πληροφορικής & Εκπαίδευση Ενηλίκων
+  - Έμφυλες Διαστάσεις στην Επιστήμη Υπολογιστών (Gender in CS)
+  - Εκπαιδευτική Ρομποτική & Physical Computing (Arduino, Scratch S4A)
+  - Προγραμματισμός, Βάσεις Δεδομένων & Πληροφοριακά Συστήματα`);
         break;
 
       case 'contact':
