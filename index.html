@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Δρ. Ιωάννης Δ. Μπερδούσης | Postdoctoral Researcher & Software Engineer</title>
+  <meta name="description" content="Προσωπική διαδραστική ιστοσελίδα και ακαδημαϊκό portfolio του Δρ. Ιωάννη Μπερδούση. Μεταδιδακτορικός Ερευνητής, Διδάκτωρ Διδακτικής Πληροφορικής (Άριστα), Μηχανικός Λογισμικού.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="avatar.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            primary: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc7fb',
+              400: '#38a9f8',
+              500: '#0e8ee9',
+              600: '#0270c7',
+              700: '#0359a1',
+              800: '#074c84',
+              900: '#0c406e',
+              950: '#082949',
+            }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.3s ease-in-out',
+            'pulse-subtle': 'pulseSubtle 3s infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(6px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.85' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom Print CSS */
+    @media print {
+      body {
+        background: white !important;
+        color: #000 !important;
+        font-size: 11pt !important;
+      }
+      .no-print, header, nav, #terminal-modal, #toast, #theme-toggle-btn, .role-switcher-container, #pub-filters-wrapper {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      a {
+        text-decoration: none !important;
+        color: #000 !important;
+      }
+    }
+    .print-only {
+      display: none;
+    }
+    /* Subtle Glassmorphism */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .dark .glass-card {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-200 antialiased font-sans selection:bg-primary-500 selection:text-white">
+
+  <!-- Floating Navigation -->
+  <nav class="sticky top-0 z-40 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md no-print transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="avatar.png" alt="Δρ. Ιωάννης Μπερδούσης" class="w-9 h-9 rounded-full ring-2 ring-primary-500 object-cover shadow-sm">
+        <div>
+          <a href="#" class="font-bold text-slate-900 dark:text-white text-sm sm:text-base tracking-tight hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            Δρ. Ιωάννης Δ. Μπερδούσης
+          </a>
+          <span class="block text-[11px] text-slate-500 dark:text-slate-400 font-medium">Postdoc Researcher & PhD</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Quick Terminal / CLI button -->
+        <button id="terminal-toggle-btn" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-lg bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors" title="Άνοιγμα Interactive CLI (Ctrl+K)">
+          <i data-lucide="terminal" class="w-3.5 h-3.5 text-primary-500"></i>
+          <span>CLI</span>
+          <kbd class="px-1.5 py-0.5 text-[10px] bg-white dark:bg-slate-800 rounded border border-slate-300 dark:border-slate-700 shadow-xs">Ctrl+K</kbd>
+        </button>
+
+        <!-- Print / PDF Button -->
+        <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors" title="Εκτύπωση / Αποθήκευση ως PDF">
+          <i data-lucide="printer" class="w-3.5 h-3.5 text-primary-500"></i>
+          <span class="hidden sm:inline">Εκτύπωση PDF</span>
+        </button>
+
+        <!-- Dark / Light Mode Toggle -->
+        <button id="theme-toggle-btn" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors" aria-label="Εναλλαγή θέματος">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+
+    <!-- Hero / Profile Section -->
+    <section class="relative overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-white via-slate-50 to-primary-50/40 dark:from-slate-900 dark:via-slate-900/90 dark:to-primary-950/20 p-6 sm:p-10 shadow-sm">
+      
+      <!-- Ambient Background glow -->
+      <div class="absolute -right-20 -top-20 w-80 h-80 bg-primary-500/10 dark:bg-primary-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8">
+        <!-- Avatar with active indicator -->
+        <div class="relative group shrink-0">
+          <img src="avatar.png" alt="Δρ. Ιωάννης Μπερδούσης" class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl ring-4 ring-primary-500/30 object-cover shadow-xl transition-transform duration-300 group-hover:scale-105">
+          <span class="absolute -bottom-2 -right-2 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500 text-white shadow-md ring-2 ring-white dark:ring-slate-900">
+            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+            Active
+          </span>
+        </div>
+
+        <!-- Name & Core Info -->
+        <div class="flex-1 space-y-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 dark:bg-primary-950/80 text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-900">
+              🎓 Postdoctoral Researcher (UoP)
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-900">
+              ⭐ PhD Άριστα (Univ. of Aegean)
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-900">
+              💻 Ex-Nokia Software Engineer
+            </span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            Δρ. Ιωάννης Δ. Μπερδούσης
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
+            Μεταδιδακτορικός Ερευνητής στο Πανεπιστήμιο Πελοποννήσου με αντικείμενο: 
+            <span class="font-semibold text-primary-600 dark:text-primary-400">«Τεχνητή Νοημοσύνη, Προγραμματισμός και Συμπερίληψη στην Εκπαίδευση»</span>. 
+            Γεφυρώνοντας την πρωτοπόρα έρευνα, την παιχνιδοποίηση (Gamification), τη μηχανική λογισμικού και τη διδακτική πράξη.
+          </p>
+
+          <!-- Contact Info Pills -->
+          <div class="pt-2 flex flex-wrap items-center gap-3 text-xs sm:text-sm">
+            <!-- Email -->
+            <button onclick="window.copyText('berdousis@sch.gr', 'Email: berdousis@sch.gr')" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary-500 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow transition-all group">
+              <i data-lucide="mail" class="w-4 h-4 text-primary-500 group-hover:scale-110 transition-transform"></i>
+              <span class="font-mono">berdousis@sch.gr</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400 ml-1"></i>
+            </button>
+
+            <!-- Phone -->
+            <button onclick="window.copyText('+306977507762', 'Τηλέφωνο: +30 697 7507762')" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary-500 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow transition-all group">
+              <i data-lucide="phone" class="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform"></i>
+              <span class="font-mono">+30 697 7507762</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400 ml-1"></i>
+            </button>
+
+            <!-- Location -->
+            <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 shadow-xs">
+              <i data-lucide="map-pin" class="w-4 h-4 text-rose-500"></i>
+              <span>Τρίπολη, Ελλάδα</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid Stats Section -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Ερευνητικό Επίπεδο</span>
+          <div class="p-2 rounded-lg bg-primary-50 dark:bg-primary-950 text-primary-600">
+            <i data-lucide="award" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-black text-slate-900 dark:text-white">Postdoc & PhD</div>
+        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">UoP & Παν. Αιγαίου (Άριστα)</div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Δημοσιεύσεις</span>
+          <div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600">
+            <i data-lucide="book-open" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-black text-slate-900 dark:text-white">33+ Papers</div>
+        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Springer, 13 Intl Journals</div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Τίτλοι Σπουδών</span>
+          <div class="p-2 rounded-lg bg-teal-50 dark:bg-teal-950 text-teal-600">
+            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-black text-slate-900 dark:text-white">4 Πτυχία/MSc</div>
+        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">2 MSc, 2 BSc (CS & Pedagogy)</div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Διδακτική Εμπειρία</span>
+          <div class="p-2 rounded-lg bg-amber-50 dark:bg-amber-950 text-amber-600">
+            <i data-lucide="users" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-black text-slate-900 dark:text-white">15+ Έτη</div>
+        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Τριτοβάθμια & Ενηλίκων</div>
+      </div>
+    </section>
+
+    <!-- Interactive Role/Perspective Switcher -->
+    <section class="role-switcher-container space-y-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-2 bg-slate-100 dark:bg-slate-900/90 rounded-2xl border border-slate-200 dark:border-slate-800">
+        <div class="px-3 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
+          <i data-lucide="sliders" class="w-4 h-4 text-primary-500"></i>
+          <span>Προβολή ανά Ρόλο:</span>
+        </div>
+        <div class="grid grid-cols-3 gap-1.5 w-full sm:w-auto">
+          <button data-role-tab="academic" class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-200 bg-primary-600 text-white shadow-md flex items-center justify-center gap-2">
+            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+            <span>Ακαδημαϊκή</span>
+          </button>
+          <button data-role-tab="tech" class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-200 text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 flex items-center justify-center gap-2">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+            <span>Τεχνολογική</span>
+          </button>
+          <button data-role-tab="executive" class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-200 text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800 flex items-center justify-center gap-2">
+            <i data-lucide="zap" class="w-4 h-4"></i>
+            <span>Σύνοψη (TL;DR)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Perspective Content: Academic -->
+      <div id="perspective-academic" class="space-y-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <i data-lucide="microscope" class="w-5 h-5 text-primary-500"></i>
+            <span>Κύριοι Ερευνητικοί Άξονες & Καινοτομία</span>
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800">
+              <span class="text-xs font-mono font-semibold text-primary-600 dark:text-primary-400">ΑΞΟΝΑΣ 01</span>
+              <h4 class="font-bold text-slate-900 dark:text-white mt-1">Τεχνητή Νοημοσύνη στην Εκπαίδευση</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                Παιδαγωγική αξιοποίηση LLMs & Generative AI, προσαρμοστική μάθηση, αλγοριθμική συμπερίληψη και εκπαίδευση εκπαιδευτικών (eTwinning).
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800">
+              <span class="text-xs font-mono font-semibold text-indigo-600 dark:text-indigo-400">ΑΞΟΝΑΣ 02</span>
+              <h4 class="font-bold text-slate-900 dark:text-white mt-1">Παιχνιδοποίηση (Gamification) & Flow</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                Έρευνα βασισμένη σε Self-Determination Theory (SDT), Flow Theory και TAM για την ενίσχυση του μαθησιακού κινήτρου.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800">
+              <span class="text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400">ΑΞΟΝΑΣ 03</span>
+              <h4 class="font-bold text-slate-900 dark:text-white mt-1">Έμφυλες Διαστάσεις στην Πληροφορική</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                Διδακτορική διατριβή (Άριστα): Αντιλήψεις, προτιμήσεις και επιδόσεις φοιτητών/τριών στα τμήματα πληροφορικής στην Ελλάδα.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Perspective Content: Tech -->
+      <div id="perspective-tech" class="hidden space-y-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <i data-lucide="terminal" class="w-5 h-5 text-emerald-500"></i>
+            <span>Τεχνολογικό Προφίλ & Εμπειρία Βιομηχανίας</span>
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800">
+              <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="radio" class="w-4 h-4 text-primary-500"></i>
+                NOKIA Networks R&D
+              </h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                Μηχανικός Ανάπτυξης Λογισμικού (Software Engineer) σε διεθνές τηλεπικοινωνιακό περιβάλλον enterprise λύσεων.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800">
+              <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="cpu" class="w-4 h-4 text-amber-500"></i>
+                Physical Computing & Arduino
+              </h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                Επιμορφωτής eTwinning Arduino Robotics, Scratch S4A, makerspaces (ASSESSMAKE21) και αλγοριθμική σκέψη.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800">
+              <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+                Κρυπτογραφία & Συστήματα
+              </h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                Στρατιωτική θητεία ως Χειριστής Ψηφιακών Τερματικών Συστημάτων - Κρυπτογράφος (ΧΨΤΣ-ΚΤ) και χειριστής του συστήματος ΑΣΔΑ.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Perspective Content: Executive -->
+      <div id="perspective-executive" class="hidden space-y-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5 text-primary-500"></i>
+            <span>Σύνοψη για Επιτροπές & Συνεργάτες (Executive Summary)</span>
+          </h3>
+          <div class="p-4 rounded-xl bg-primary-50 dark:bg-primary-950/40 border border-primary-200 dark:border-primary-900 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+            Ο <strong>Δρ. Ιωάννης Μπερδούσης</strong> συνδυάζει σε σπάνιο βαθμό την <strong>πλήρη ακαδημαϊκή κατάρτιση στην Επιστήμη Υπολογιστών</strong> (BSc & MSc) με την <strong>εξειδικευμένη παιδαγωγική επιστήμη</strong> (Πτυχίο Παιδαγωγικού, MSc Διδακτικής ΤΠΕ, PhD με Άριστα). Έχει υπηρετήσει ως Software Engineer στην <strong>NOKIA Networks</strong>, ως πανεπιστημιακός διδάσκων σε 4 ακαδημαϊκά ιδρύματα (Παν. Πελοποννήσου, Μητροπολιτικό Κολλέγιο, ΑΣΠΑΙΤΕ, ΤΕΙ) και διαθέτει πλούσιο ερευνητικό έργο με 33+ δημοσιεύσεις σε Springer, έγκριτα διεθνή περιοδικά και συνέδρια.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications Explorer (Core Interactive Feature) -->
+    <section id="publications" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400 flex items-center gap-1.5">
+            <i data-lucide="library" class="w-4 h-4"></i>
+            <span>Research & Publications Hub</span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">
+            Επιστημονικές Δημοσιεύσεις
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            Αναζητήστε και φιλτράρετε σε πραγματικό χρόνο ανά τίτλο, λέξη-κλειδί, κατηγορία ή έτος.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span id="pub-count-badge" class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-primary-100 dark:bg-primary-950/80 text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-900">
+            33 από 33
+          </span>
+        </div>
+      </div>
+
+      <!-- Search & Filters Bar -->
+      <div id="pub-filters-wrapper" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+        <!-- Live Search Input -->
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input 
+            type="text" 
+            id="pub-search-input" 
+            placeholder="Αναζήτηση με όρο: π.χ. gamification, gender, springer, tablets, flow, arduino..." 
+            class="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white placeholder-slate-400 transition-all"
+          >
+        </div>
+
+        <!-- Filter Category Pills -->
+        <div class="flex flex-wrap items-center gap-1.5">
+          <button data-pub-filter="all" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary-600 text-white shadow-xs transition-colors">
+            Όλες (33)
+          </button>
+          <button data-pub-filter="intl-journal" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors">
+            Διεθνή Περιοδικά (13)
+          </button>
+          <button data-pub-filter="book" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors">
+            Κεφάλαιο Springer (1)
+          </button>
+          <button data-pub-filter="conference" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors">
+            Διεθνή Συνέδρια (6)
+          </button>
+          <button data-pub-filter="greek" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors">
+            Ελληνικά Περιοδικά & Συνέδρια (13)
+          </button>
+        </div>
+      </div>
+
+      <!-- Publication Cards Grid -->
+      <div id="publications-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Dual Interactive Timeline (Academic vs Work Experience) -->
+    <section class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400 flex items-center gap-1.5">
+            <i data-lucide="git-branch" class="w-4 h-4"></i>
+            <span>Roadmap & Διαδρομή</span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">
+            Χρονολόγιο Εξέλιξης
+          </h2>
+        </div>
+
+        <div class="flex items-center p-1 bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 w-fit">
+          <button data-timeline-toggle="academic" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-primary-600 text-white shadow-xs transition-all">
+            Ακαδημαϊκές Σπουδές
+          </button>
+          <button data-timeline-toggle="experience" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all">
+            Επαγγελματική & Διδακτική
+          </button>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white/50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800">
+        <div id="timeline-content" class="relative">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Projects & Collaborations -->
+    <section class="space-y-6">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400 flex items-center gap-1.5">
+          <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+          <span>Funding & Grants</span>
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">
+          Ερευνητικά Έργα
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono font-semibold text-primary-600 dark:text-primary-400">2020 – 2022</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base mt-1">ASSESSMAKE21</h4>
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">EDUMOTIVA & Ευρωπαϊκοί Εταίροι</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+              Καινοτόμες ψηφιακές λύσεις για την αξιολόγηση δεξιοτήτων 21ου αιώνα σε σχολικά makerspaces. Συμμετοχή στα O1, O2, O3, O4.
+            </p>
+          </div>
+          <span class="mt-4 inline-block text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-1 rounded-md border border-indigo-200 dark:border-indigo-900 w-fit">
+            Erasmus+ Makerspaces
+          </span>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono font-semibold text-primary-600 dark:text-primary-400">2019 – 2020</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base mt-1">Σύστημα DMS Πελοποννήσου</h4>
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Ειδικός Λογαριασμός Έρευνας Παν. Πελοποννήσου</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+              Μελέτη διεθνών βέλτιστων πρακτικών, αρχιτεκτονική συστήματος και τεύχος τεχνικών προδιαγραφών για Destination Management System.
+            </p>
+          </div>
+          <span class="mt-4 inline-block text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-md border border-emerald-200 dark:border-emerald-900 w-fit">
+            Regional DMS Architecture
+          </span>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono font-semibold text-primary-600 dark:text-primary-400">2015</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base mt-1">Let’s make it better!</h4>
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">Ευρωπαϊκό Πρόγραμμα Erasmus+ KA200</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+              Ανάπτυξη αυτεπίγνωσης και εκπαιδευτικού ψηφιακού υλικού για τη διατροφή, την υγεία και την ασφάλεια τροφίμων στο σχολείο.
+            </p>
+          </div>
+          <span class="mt-4 inline-block text-[11px] font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded-md border border-amber-200 dark:border-amber-900 w-fit">
+            Erasmus+ KA200
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic Service, Registries & Peer Review -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Peer Reviewer -->
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="check-check" class="w-5 h-5 text-emerald-500"></i>
+          <span>Κριτής Επιστημονικών Περιοδικών (Reviewer)</span>
+        </h3>
+        <ul class="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+          <li class="flex items-start gap-2">
+            <i data-lucide="shield" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>
+            <div>
+              <strong>Gender and Education</strong> (Taylor & Francis, SSCI)
+              <a href="https://www.tandfonline.com/loi/cgee20" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline block text-xs mt-0.5">
+                tandfonline.com/loi/cgee20 &nearr;
+              </a>
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="shield" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>
+            <div>
+              <strong>Νέος Παιδαγωγός</strong> (Πανελλήνιο Συνέδριο & Επιστημονικό Περιοδικό)
+              <a href="http://neospaidagogos.gr" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline block text-xs mt-0.5">
+                neospaidagogos.gr &nearr;
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Official Registries -->
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="badge-check" class="w-5 h-5 text-primary-500"></i>
+          <span>Πιστοποιήσεις & Επίσημα Μητρώα</span>
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Μητρώο ΕΚΔΔΑ</span>
+          <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Κ.Ε.ΔΙ.ΒΙ.Μ. Πανεπιστημίου Πελοποννήσου</span>
+          <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Κ.Ε.ΔΙ.ΒΙ.Μ. ΕΚΠΑ</span>
+          <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Κ.Ε.ΔΙ.ΒΙ.Μ. Πανεπιστημίου Μακεδονίας</span>
+          <span class="px-2.5 py-1 text-xs rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-900 font-mono">Ε.Ο.Π.Π.Ε.Π (ΕΒ23154)</span>
+          <span class="px-2.5 py-1 text-xs rounded-lg bg-indigo-100 dark:bg-indigo-950/60 text-indigo-800 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-900 font-mono">ΛΑΕΚ ΟΑΕΔ (37209)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400 no-print">
+      <div class="flex items-center gap-2">
+        <span>&copy; 2026 Δρ. Ιωάννης Δ. Μπερδούσης</span>
+        <span>&bull;</span>
+        <span>Hosted on GitHub Pages</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors flex items-center gap-1">
+          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+          <span>Κορυφή</span>
+        </button>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Interactive Terminal Modal (CLI Mode) -->
+  <div id="terminal-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[460px]">
+      <!-- Terminal Header -->
+      <div class="px-4 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+          <span class="ml-2 font-mono text-xs text-slate-400">ioannis-berdousis-terminal ~ v1.0</span>
+        </div>
+        <button id="terminal-close-btn" class="text-slate-400 hover:text-white text-xs font-mono px-2 py-0.5 rounded hover:bg-slate-800 transition-colors">
+          ESC / Close
+        </button>
+      </div>
+
+      <!-- Terminal Output -->
+      <div id="terminal-output" class="flex-1 p-4 overflow-y-auto font-mono text-xs text-slate-200 space-y-1">
+        <div class="text-emerald-400 font-semibold mb-2">
+          Καλωσήρθατε στο διαδραστικό CLI του Δρ. Ιωάννη Μπερδούση.
+        </div>
+        <div class="text-slate-400 text-xs">
+          Πληκτρολογήστε <span class="text-primary-400 font-bold">help</span> για να δείτε τις διαθέσιμες εντολές ή <span class="text-primary-400 font-bold">pubs</span>, <span class="text-primary-400 font-bold">bio</span>, <span class="text-primary-400 font-bold">contact</span>.
+        </div>
+      </div>
+
+      <!-- Terminal Prompt Input -->
+      <div class="p-3 bg-slate-950 border-t border-slate-800 flex items-center gap-2 font-mono text-xs">
+        <span class="text-emerald-400">guest@berdousis.gr:~$</span>
+        <input 
+          type="text" 
+          id="terminal-input" 
+          autocomplete="off" 
+          spellcheck="false" 
+          class="flex-1 bg-transparent border-none text-white focus:outline-none"
+          placeholder="π.χ. help, bio, pubs, contact..."
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-xs font-semibold shadow-xl border border-slate-700 dark:border-slate-300 opacity-0 pointer-events-none translate-y-4 transition-all duration-300 flex items-center gap-2">
+    <!-- Populated by window.showToast -->
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
